@@ -1,1 +1,20 @@
-INSERT INTO (ID, NOMBRE, EMAIL, TELEFONO) VALUES ()
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (0, 'Roberto', 'rmr14092042@gmail.com', '672367292');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (1, 'Lucía', 'lucia@gmail.com', '612345678');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (2, 'Carlos', 'carlos@mail.com', '633212345');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (3, 'Marta', 'marta@mail.com', '644556677');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (4, 'David', 'david@mail.com', '655443322');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (5, 'Laura', 'laura@gmail.com', '677889900');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (6, 'Alberto', 'alberto@mail.com', '611223344');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (7, 'Elena', 'elena@mail.com', '622334455');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (8, 'Sergio', 'sergio@mail.com', '699887766');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (9, 'Marina', 'marina@mail.com', '688776655');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (10, 'Javier', 'javier@mail.com', '677665544');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (11, 'Ana', 'ana@gmail.com', '633221100');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (12, 'Pedro', 'pedro@mail.com', '655667788');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (13, 'Patricia', 'patri@mail.com', '644332211');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (14, 'Miguel', 'miguel@gmail.com', '688899900');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (15, 'Sara', 'sara@mail.com', '600112233');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (16, 'Alejandro', 'alejandro@mail.com', '677445566');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (17, 'Isabel', 'isabel@mail.com', '633009988');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (18, 'Andrés', 'andres@gmail.com', '655332211');
+INSERT INTO cliente (ID, NOMBRE, EMAIL, TELEFONO) VALUES (19, 'Carmen', 'carmen@mail.com', '644998877');
