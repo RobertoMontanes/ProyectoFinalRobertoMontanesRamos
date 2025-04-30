@@ -1,0 +1,14 @@
+.nav-menu a {
+	color: #1E90FF;
+	text-decoration: none;
+	margin-left: 30px;
+	font-size: 1rem;
+	transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+	display: inline-block;
+}
+
+.nav-menu a:hover {
+	color: #FFD700 !important;
+	transform: scale(1.15) !important;
+	text-shadow: 0 0 8px #FFD700 !important;
+}
