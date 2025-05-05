@@ -2,98 +2,50 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Gestión de Entradas de Cine</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Entradas de Cine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="d-flex flex-column">
+<body>
 
-	<!-- HEADER -->
-	<header th:replace="~{fragmentos/header::header}"></header>
+<!-- Incluye header si usas fragmentos -->
+<div th:replace="fragmentos/header :: header"></div>
 
-	<!-- CARRUSEL -->
-	<div id="cineCarousel" class="carousel slide" data-bs-ride="carousel" style="flex-grow: 1;">
-		<!-- Indicadores -->
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#cineCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-				aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#cineCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#cineCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			<button type="button" data-bs-target="#cineCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-		</div>
+<!-- Contenedor principal -->
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Bienvenido a la Gestión de Entradas de Cine</h1>
 
-		<!-- Imágenes con texto -->
-		<div class="carousel-inner bg-secondary py-4">
-			<div class="carousel-item active text-center">
-				<img src="https://www.cinesa.es/media/0x5bu12a/hero-thunderbolts.jpg?width=1024&height=480&rxy=0.5%2C0.5"
-					class="d-block mx-auto w-75" alt="Película 1">
-				<div class="carousel-caption d-none d-md-block">
-					<h2 class="fw-bold text-white text-uppercase">Thunderbolts</h2>
-				</div>
-			</div>
+    <div class="row justify-content-center">
+        <!-- Opción para registrar un nuevo cliente -->
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Registrar Nuevo Cliente</h5>
+                    <p class="card-text">Ingresa los datos del cliente para proceder con la compra de entradas.</p>
+                    <a href="/clientes/crear" class="btn btn-primary w-100">Registrar Cliente</a>
+                </div>
+            </div>
+        </div>
 
-			<div class="carousel-item text-center">
-				<img src="https://www.cinesa.es/media/rd1bnpbb/hero-until-dawn.jpg?width=1024&height=480&rxy=0.5%2C0.5"
-					class="d-block mx-auto w-75" alt="Película 2">
-				<div class="carousel-caption d-none d-md-block">
-					<h2 class="fw-bold text-white text-uppercase">Until Dawn</h2>
-				</div>
-			</div>
+        <!-- Opción para elegir una entrada -->
+        <div class="col-md-4 mb-4">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Elegir Entrada</h5>
+                    <p class="card-text">Si ya tienes un cliente registrado, elige una entrada para comprar.</p>
+                    <a href="/entradas/elegir" class="btn btn-success w-100">Elegir Entrada</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-			<div class="carousel-item text-center">
-				<img src="https://www.cinesa.es/media/ky5hac0y/hero-banner-minecraft.jpg?width=1024&height=480&rxy=0.5%2C0.5"
-					class="d-block mx-auto w-75" alt="Película 3">
-				<div class="carousel-caption d-none d-md-block">
-					<h2 class="fw-bold text-white text-uppercase">Minecraft: La Película</h2>
-				</div>
-			</div>
-
-
-			<div class="carousel-item text-center">
-				<img src="https://www.cinesa.es/media/1kqeekev/hero-warfare.jpg?width=1024&height=480&rxy=0.5%2C0.5"
-					class="d-block mx-auto w-75" alt="Película 4">
-				<div class="carousel-caption d-none d-md-block">
-					<h2 class="fw-bold text-white text-uppercase">Warfare: Tiempo de Guerra</h2>
-				</div>
-			</div>
-		</div>
-
-		<!-- Botones -->
-		<button class="carousel-control-prev" type="button" data-bs-target="#cineCarousel" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Anterior</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#cineCarousel" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Siguiente</span>
-		</button>
-	</div>
-
-	<!-- Modal de Descuento Especial -->
-	<div class="modal fade" id="descuentoModal" tabindex="-1" aria-labelledby="descuentoModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="descuentoModalLabel">Descuento Especial</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-				</div>
-				<div class="modal-body">
-					<p>¡Usa el código <strong>DESCUENTO20</strong> al realizar tu compra y obtén un 20% de descuento en
-						todas las películas!</p>
-					<p>¡No pierdas la oportunidad de disfrutar de tu película favorita con descuento!</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer th:replace="~{fragmentos/footer::footer}"></footer>
-
+<!-- Incluye footer si usas fragmentos -->
+<div th:replace="fragmentos/footer :: footer"></div>
 
 </body>
 

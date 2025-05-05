@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +19,9 @@ public class Cliente {
 	private String email;
 	private String telefono;
 	
-	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cliente_id")
+	private List<Entrada> entradas = new ArrayList<>();
+
 
 }
