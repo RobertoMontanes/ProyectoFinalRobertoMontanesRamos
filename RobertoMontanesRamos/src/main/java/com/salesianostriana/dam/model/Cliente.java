@@ -12,16 +12,21 @@ import lombok.*;
 @AllArgsConstructor
 public class Cliente {
 
-	@Id
-	@GeneratedValue
-	private long id;
-	private String nombre;
-	private String email;
-	private String telefono;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "cliente_id")
-	private List<Entrada> entradas = new ArrayList<>();
+    @Id
+    @GeneratedValue
+    private long id;
 
+    private String nombre;
+    private String email;
+    private String telefono;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id")
+    private List<Entrada> entradas = new ArrayList<>();
+    
+    
+    public void setEntradas(List<Entrada> entradas) {
+        this.entradas = entradas;
+    }
 
 }

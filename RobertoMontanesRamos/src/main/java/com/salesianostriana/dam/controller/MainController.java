@@ -24,7 +24,7 @@ public class MainController {
     @GetMapping("/")
     public String mostrarFormulario(Model model) {
         Cliente cliente = new Cliente();
-        cliente.setEntradas(List.of(new Entrada())); // Inicializa con una entrada
+        cliente.setEntradas(List.of(new Entrada())); // Asegúrate de tener el setter
         model.addAttribute("cliente", cliente);
         return "index";
     }
