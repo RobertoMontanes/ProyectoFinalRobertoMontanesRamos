@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Gestión de Clientes</h1>
+        
+        <a href="/" class="btn btn-primary mb-3">Volver al Inicio</a>
+        <a href="/admin/cliente/nuevo" class="btn btn-success mb-3">Nuevo Cliente</a>
+        
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td>
+                        <a th:href="@{/admin/cliente/editar/} + ${cliente.id}" class="btn btn-sm btn-warning">Editar</a>
+                        <a th:href="@{/admin/cliente/borrar/} + ${cliente.id}" class="btn btn-sm btn-danger">Borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -2,27 +2,34 @@ package com.salesianostriana.dam.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class Cliente {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue
     private Long id;
 
     private String nombre;
     private String email;
     private String telefono;
 
-    @ManyToMany
-    @JoinTable(
-        name = "cliente_pelicula",
-        joinColumns = @JoinColumn(name = "cliente_id"),
-        inverseJoinColumns = @JoinColumn(name = "pelicula_id")
-    )
-    private List<Pelicula> peliculas;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    private List<Entrada> entradas = new ArrayList<>();
+
+    public void addEntrada(Entrada e) {
+        e.setCliente(this);
+        this.entradas.add(e);
+    }
+
+    public void removeEntrada(Entrada e) {
+        e.setCliente(null);
+        this.entradas.remove(e);
+    }
 }
