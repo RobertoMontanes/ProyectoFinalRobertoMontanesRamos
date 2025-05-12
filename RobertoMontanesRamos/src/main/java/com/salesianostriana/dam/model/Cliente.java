@@ -1,14 +1,13 @@
 package com.salesianostriana.dam.model;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor @AllArgsConstructor
+@Builder
 public class Cliente {
 
     @Id
@@ -17,18 +16,13 @@ public class Cliente {
 
     private String nombre;
     private String email;
-    private String password;
+    private String telefono;
 
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
-    private List<Entrada> entradas = new ArrayList<>();
-
-  
-
-    public List<Entrada> getEntradas() {
-        return entradas;
-    }
-
-    public void setEntradas(List<Entrada> entradas) {
-        this.entradas = entradas;
-    }
+    @ManyToMany
+    @JoinTable(
+        name = "cliente_pelicula",
+        joinColumns = @JoinColumn(name = "cliente_id"),
+        inverseJoinColumns = @JoinColumn(name = "pelicula_id")
+    )
+    private List<Pelicula> peliculas;
 }
