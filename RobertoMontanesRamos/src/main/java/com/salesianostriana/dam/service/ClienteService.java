@@ -17,6 +17,6 @@ public class ClienteService {
 
     @Transactional
     public void guardar(Cliente cliente) {
-        clienteRepository.save(cliente); // Gracias al Cascade, también guarda entradas
+        clienteRepository.save(cliente);
     }
 }

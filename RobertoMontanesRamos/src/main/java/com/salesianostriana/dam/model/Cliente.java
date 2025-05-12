@@ -1,32 +1,34 @@
 package com.salesianostriana.dam.model;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Cliente {
 
     @Id
-    @GeneratedValue
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String nombre;
     private String email;
-    private String telefono;
+    private String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id")
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Entrada> entradas = new ArrayList<>();
-    
-    
+
+  
+
+    public List<Entrada> getEntradas() {
+        return entradas;
+    }
+
     public void setEntradas(List<Entrada> entradas) {
         this.entradas = entradas;
     }
-
 }
