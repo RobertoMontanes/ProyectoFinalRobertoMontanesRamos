@@ -12,14 +12,14 @@ import java.util.List;
 @Builder
 public class Cliente {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
     private String email;
     private String telefono;
 
-    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "cliente")
     @Builder.Default
     private List<Entrada> entradas = new ArrayList<>();
 

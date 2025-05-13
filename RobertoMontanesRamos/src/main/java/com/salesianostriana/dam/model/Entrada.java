@@ -10,15 +10,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class Entrada {
-
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String pelicula;
     private LocalDateTime fechaHora;
     private double precio;
     private boolean vendida;
-
+    
+    @Column(columnDefinition = "TEXT")
+    private String imagenUrl; 
+    
     @ManyToOne
     private Cliente cliente;
 }
