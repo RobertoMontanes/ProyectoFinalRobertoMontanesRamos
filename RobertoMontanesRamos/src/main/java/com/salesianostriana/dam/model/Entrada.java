@@ -10,16 +10,25 @@ import java.time.LocalDateTime;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 public class Entrada {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String pelicula;
+
+    private String cliente;
     private LocalDateTime fechaHora;
     private double precio;
-    private boolean vendida;
-    
-    @Column(columnDefinition = "TEXT")
-    private String imagenUrl; 
-    
+
     @ManyToOne
-    private Cliente cliente;
+    @JoinColumn(name = "sala_id")
+    private Sala sala;
+
+    // Añade estos métodos si no los tienes
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public void setFechaHora(LocalDateTime fechaHora) {
+        this.fechaHora = fechaHora;
+    }
 }
